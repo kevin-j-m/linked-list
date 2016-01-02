@@ -47,4 +47,22 @@ describe LinkedList do
       @linked_list.empty?.must_equal false
     end
   end
+
+  describe "#size" do
+    it "is 0 if no elements have been added" do
+      @linked_list.size.must_equal 0
+    end
+
+    it "increments to the proper size as items are added" do
+      @linked_list.add("one")
+      @linked_list.add("two")
+
+      @linked_list.size.must_equal 2
+    end
+
+    it "decrements to the proper size as items are removed" do
+      #TODO
+
+    end
+  end
 end

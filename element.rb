@@ -11,3 +11,10 @@ class Element
     !@next
   end
 end
+
+class NilElement < Element
+  def initialize
+    @data = nil
+    @next = nil
+  end
+end
