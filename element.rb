@@ -17,4 +17,8 @@ class NilElement < Element
     @data = nil
     @next = nil
   end
+
+  def nil?
+    true
+  end
 end

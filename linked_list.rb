@@ -24,6 +24,24 @@ class LinkedList
     @size += 1
   end
 
+  def remove(index)
+    element_to_remove = get_element(index)
+
+    return @size if element_to_remove.nil?
+
+    next_element = element_to_remove.next
+
+    if element_to_remove == @head
+      @head = next_element
+    else
+      prior_element = get_element(index - 1)
+
+      prior_element.next = next_element
+    end
+
+    @size -= 1
+  end
+
   def empty?
     !@head
   end
