@@ -35,4 +35,8 @@ class LinkedList
       @head = element
     end
   end
+
+  def empty?
+    !@head
+  end
 end

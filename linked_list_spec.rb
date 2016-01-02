@@ -35,4 +35,16 @@ describe LinkedList do
       @linked_list.get(7).must_be_nil
     end
   end
+
+  describe "#empty?" do
+    it "is empty if there are no elements" do
+      @linked_list.empty?.must_equal true
+    end
+
+    it "is not empty if elements are in the list" do
+      @linked_list.add("new")
+
+      @linked_list.empty?.must_equal false
+    end
+  end
 end
