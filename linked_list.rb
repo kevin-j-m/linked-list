@@ -8,14 +8,17 @@ class LinkedList
   def get(index)
     if @head
       current = @head
+      iterations = 0
       index.times do
         if current.tail?
           break
         else
           current = current.next
         end
+        iterations += 1
       end
-      current.data
+
+      iterations == index ? current.data : nil
     end
   end
 
