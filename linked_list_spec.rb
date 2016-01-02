@@ -13,6 +13,15 @@ describe LinkedList do
 
       @linked_list.get(0).must_equal(first_element)
     end
+
+    it "provides the new size of the list" do
+      first_element = "Hydrogem"
+      second_element = "Helium"
+
+      @linked_list.add(first_element)
+
+      @linked_list.add(second_element).must_equal 2
+    end
   end
 
   describe "#get" do

@@ -14,18 +14,14 @@ class LinkedList
 
   def add(data)
     element = Element.new(data)
-    @size += 1
 
     if empty?
       @head = element
     else
-      current = @head
-      until current.tail?
-        current = current.next
-      end
-
-      current.next = element
+      tail_element.next = element
     end
+
+    @size += 1
   end
 
   def empty?
@@ -43,5 +39,9 @@ class LinkedList
     end
 
     current || NilElement.new
+  end
+
+  def tail_element
+    get_element(size - 1)
   end
 end
