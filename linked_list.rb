@@ -1,6 +1,8 @@
 require_relative "element"
 
 class LinkedList
+  include Enumerable
+
   attr_reader :size
 
   def initialize(elements = nil)

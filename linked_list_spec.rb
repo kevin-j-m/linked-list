@@ -208,4 +208,14 @@ describe LinkedList do
       result.must_equal("abcde")
     end
   end
+
+  describe "#map" do
+    it "maps over each element in the list" do
+      @linked_list = LinkedList.new([1, 2, 3])
+
+      as_strings = @linked_list.map { |e| e.to_s }
+
+      as_strings.must_equal(%w(1 2 3))
+    end
+  end
 end
