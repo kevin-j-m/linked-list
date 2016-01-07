@@ -197,4 +197,15 @@ describe LinkedList do
       @linked_list.to_a.must_equal(array)
     end
   end
+
+  describe "#each" do
+    it "yields each element to the block" do
+      @linked_list = LinkedList.new(%w(a b c d e))
+      result = ""
+
+      @linked_list.each { |e| result << e }
+
+      result.must_equal("abcde")
+    end
+  end
 end

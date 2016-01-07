@@ -52,16 +52,14 @@ class LinkedList
 
   def to_a
     array = []
-
-    if @head
-      current = @head
-      while current
-        array << current.data
-        current = current.next
-      end
-    end
-
+    each { |e| array << e }
     array
+  end
+
+  def each
+    @size.times do |i|
+      yield get(i)
+    end
   end
 
   private
