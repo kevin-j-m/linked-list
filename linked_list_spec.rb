@@ -153,4 +153,48 @@ describe LinkedList do
       @linked_list.size.must_equal 1
     end
   end
+
+  describe "#reverse" do
+    it "does nothing with no elements" do
+      @linked_list.reverse
+
+      @linked_list.size.must_equal 0
+    end
+
+    it "is unchanged with one element" do
+      first = "first"
+      @linked_list.add(first)
+
+      @linked_list.reverse
+
+      @linked_list.size.must_equal 1
+      @linked_list.get(0).must_equal first
+    end
+
+    it "reverses the order with many elements" do
+      @linked_list = LinkedList.new((1..5).to_a)
+
+      @linked_list.get(0).must_equal 1
+      @linked_list.get(4).must_equal 5
+
+      @linked_list.reverse
+
+      5.times do |x|
+        @linked_list.get(x).must_equal(5 - x)
+      end
+    end
+  end
+
+  describe "#to_a" do
+    it "provides an empty array with no elements" do
+      @linked_list.to_a.must_equal([])
+    end
+
+    it "converts the list to an array with elements in order" do
+      array = [1, 2, 3]
+      @linked_list = LinkedList.new(array)
+
+      @linked_list.to_a.must_equal(array)
+    end
+  end
 end

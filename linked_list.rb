@@ -4,10 +4,7 @@ class LinkedList
   attr_reader :size
 
   def initialize(elements = nil)
-    @head = nil
-    @size = 0
-
-    elements.each { |e| add(e) } if elements
+    set_initial_state(elements)
   end
 
   def get(index)
@@ -48,7 +45,33 @@ class LinkedList
     !@head
   end
 
+  def reverse
+    reversed_array = to_a.reverse
+    set_initial_state(reversed_array)
+  end
+
+  def to_a
+    array = []
+
+    if @head
+      current = @head
+      while current
+        array << current.data
+        current = current.next
+      end
+    end
+
+    array
+  end
+
   private
+
+  def set_initial_state(elements)
+    @head = nil
+    @size = 0
+
+    elements.each { |e| add(e) } if elements
+  end
 
   def get_element(index)
     if size >= index + 1
