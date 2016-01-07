@@ -3,9 +3,11 @@ require_relative "element"
 class LinkedList
   attr_reader :size
 
-  def initialize
+  def initialize(elements = nil)
     @head = nil
     @size = 0
+
+    elements.each { |e| add(e) } if elements
   end
 
   def get(index)
